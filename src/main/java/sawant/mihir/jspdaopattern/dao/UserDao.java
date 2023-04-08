@@ -3,20 +3,26 @@ package sawant.mihir.jspdaopattern.dao;
 import sawant.mihir.jspdaopattern.entities.User;
 
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class UserDao {
-    private static List<User> usersDb;
+    private List<User> usersDb;
 
     public UserDao(){
-        usersDb = List.of(new User("Tom", 35),
-                new User("Jerry", 25), new User("Donald", 55),
-                new User("Popyee", 34), new User("Shinchan", 8));
+        usersDb = new ArrayList<User>();
+
+        usersDb.addAll(Arrays.asList(new User("Tom", "Manager"),
+                new User("Jerry", "Manager"),
+                new User("Donald", "Developer"),
+                new User("Popyee", "Sales"),
+                new User("Shinchan", "Marketing")));
     }
 
     public int addUser(User user){
         boolean addValue = usersDb.add(user);
-        return addValue;
+        return addValue ? 1 : -1;
     }
 
     public int updateUser(String name, User user){
@@ -26,7 +32,7 @@ public class UserDao {
             for(User u : usersDb){
                 if(u.getName().equalsIgnoreCase(name)){
                     u.setName(user.getName());
-                    u.setAge(user.getAge());
+                    u.setDesignation(user.getDesignation());
                     return 1;
                 }
             }

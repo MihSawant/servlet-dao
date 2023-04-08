@@ -2,11 +2,11 @@ package sawant.mihir.jspdaopattern.entities;
 
 public class User {
     private String name;
-    private int age;
+    private String designation;
 
-    public User(String name, int age){
+    public User(String name, String designation){
         this.name = name;
-        this.age = age;
+        this.designation = designation;
     };
 
     public String getName() {
@@ -17,19 +17,19 @@ public class User {
         this.name = name;
     }
 
-    public int getAge() {
-        return age;
+    public String getDesignation() {
+        return designation;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setDesignation(String designation) {
+        this.designation = designation;
     }
 
     @Override
     public String toString() {
         return "User{" +
                 "name='" + name + '\'' +
-                ", age=" + age +
+                ", designation=" + designation +
                 '}';
     }
 }
